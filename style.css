@@ -1,0 +1,105 @@
+body {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: #2C2C2C;
+    color: white;
+    user-select: none;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+}
+
+.left h3 {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 55px;
+}
+
+.right {
+    display: absolute;
+    padding: 0;
+    float: right;
+    margin-right: 125px;
+}
+
+.kibble:hover, .wet:hover, .blueb:hover {
+    filter: brightness(0.9);
+    transform: scale(0.99);
+}
+
+.coco {
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.coco:hover {
+    cursor: pointer;
+    opacity: 0.95;
+    transform: scale(0.99);
+}
+
+.coco:active {
+    opacity: 0.9;
+    transform: scale(1.025);
+}
+
+.upgrades {
+    display: flex;
+    align-items: center;
+    width: 350px;
+    height: 60px;
+    border: 4px solid white;
+    border-radius: 5px;
+    justify-content: space-between;
+    padding: 10px 10px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
+
+.upgrade-img {
+    width: 80px;
+    margin-top: 4px;
+    margin-left: -10px;
+}
+
+.kibble-lvl {
+    font-size: 20px;
+}
+
+.upgrade-name {
+    margin-top: 12px;
+    margin-bottom: -10px;
+}
+
+.cocotiny {
+    width: 30px;
+    height: 30px;
+}
+
+.tiny {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    margin-top: 0;
+    margin-bottom: -5px;
+    font-size: 22px;
+}
+
+.lvl-info {
+    padding: 7px 7px;
+    position: absolute;
+    right: -124px;
+    text-align: center;
+    background-color: #949494;
+    margin-right: 10px;
+    width: 100px;
+}

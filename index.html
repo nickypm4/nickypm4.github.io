@@ -1,0 +1,82 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+        <link rel="stylesheet" href="style.css">
+        <title>cocogame</title>
+    </head>
+    <body>
+        <section>
+            <div class="main">
+                <div class="left">
+                    <h3>cocopoints: <span class="cocos">0</span></h3>
+                    <img src="./assets/coco.png" alt="coco" class="coco" onclick="cocoUp()" draggable="false">
+                </div>
+
+                <div class="right">
+
+                    <div class="upgrades kibble" onclick="kibbleBuy()">
+                        <div class="left-sect">
+                            <img src="./assets/kibble.jpg" alt="" class="upgrade-img">
+                        </div>
+                        <div class="mid-sect">
+                            <h2 class="upgrade-name">dry kibble</h2>
+                            <div class="tiny">
+                                <p>cost: <span class="kibblecost">5</span></p>
+                                <img src="./assets/cocotiny.png" alt="" class="cocotiny">
+                            </div>
+                        </div>
+                        <div class="right-sect">
+                            x<span class="kibble-lvl">0</span>
+                        </div>
+                        <div class="lvl-info">
+                            <p>+<span class="kibble-amount">0.5</span> cocopoint<br> per 1s</p>
+                        </div>
+                    </div>
+
+                    <div class="upgrades wet" onclick="wetBuy()">
+                        <div class="left-sect">
+                            <img src="./assets/wetfood.png" alt="" class="upgrade-img">
+                        </div>
+                        <div class="mid-sect">
+                            <h2 class="upgrade-name">wet food</h2>
+                            <div class="tiny">
+                                <p>cost: <span class="wetcost">10</span></p>
+                                <img src="./assets/cocotiny.png" alt="" class="cocotiny">
+                            </div>
+                        </div>
+                        <div class="right-sect">
+                            x<span class="wet-lvl">0</span>
+                        </div>
+                        <div class="lvl-info">
+                            <p>+<span class="wet-amount">1</span> cocopoint<br> per click</p>
+                        </div>
+                    </div>
+
+                    <div class="upgrades blueb" onclick="bluebBuy()">
+                        <div class="left-sect">
+                            <img src="./assets/blueberries.png" alt="" class="upgrade-img">
+                        </div>
+                        <div class="mid-sect">
+                            <h2 class="upgrade-name">bluebs</h2>
+                            <div class="tiny">
+                                <p>cost: <span class="bluebcost">20</span></p>
+                                <img src="./assets/cocotiny.png" alt="" class="cocotiny">
+                            </div>
+                        </div>
+                        <div class="right-sect">
+                            x<span class="blueb-lvl">0</span>
+                        </div>
+                        <div class="lvl-info">
+                            <p>get cocopoint <br><span class="blueb-amount">1.25</span>x faster!</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <script src="index.js"></script>
+    </body>
+    </html>
