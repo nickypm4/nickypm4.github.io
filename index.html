@@ -4,14 +4,18 @@
         <meta charset="UTF-8">
         <meta name='viewport' content='width=device-width, initial-scale=1.0'>
         <link rel="stylesheet" href="style.css">
+
+        <link rel="icon" href="./assets/cocotiny.png">
         <title>cocogame</title>
     </head>
     <body>
+        <audio autoplay loop src="./assets/deedeesong.wav"></audio>
         <section>
             <div class="main">
                 <div class="left">
-                    <h3>cocopoints: <span class="cocos">0</span></h3>
-                    <img src="./assets/coco.png" alt="coco" class="coco" onclick="cocoUp()" draggable="false">
+                    <h3 class="cocotext" style="margin:0;">cocopoints</h3>
+                    <h3 class="cocotext" style="margin-top:10px;"><span class="cocos">0</span></h3>
+                    <img src="./assets/coco.png" alt="coco" class="coco" onclick="cocoUp()" draggable="false" id="cocosize">
                 </div>
 
                 <div class="right">
@@ -73,6 +77,25 @@
                         </div>
                     </div>
 
+                </div>
+            </div>
+
+            <div class="stats">
+                <div class="stats-text">
+                    <div class="tooltip">
+                        <h3>cppc: <span id="cppc-text">1</span></h3>
+                        <span class="tooltiptext">cocopoints per click</span>
+                    </div>
+                    <br>
+                    <div class="tooltip">
+                        <h3>cppi: <span id="cppi-text">0</span></h3>
+                        <span class="tooltiptext">cocopoints per interval</span>
+                    </div>
+                    <br>
+                    <div class="tooltip">
+                        <h3>interval: <span id="interval-text">1000</span></h3>
+                        <span class="tooltiptext">time between cocopoints (ms)</span>
+                    </div>
                 </div>
             </div>
         </section>

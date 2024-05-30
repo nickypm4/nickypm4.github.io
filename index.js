@@ -19,9 +19,41 @@ let bluebLvl = document.querySelector('.blueb-lvl')
 let bluebAmount = document.querySelector('.blueb-amount')
 let parsedBluebAmount = parseFloat(bluebAmount.innerHTML)
 
+let cppcStat = document.getElementById("cppc-text")
+let cppiStat = document.getElementById("cppi-text")
+let intervalStat = document.getElementById("interval-text")
+
+let cocoSize = document.getElementById("cocosize")
+
+let cocoSong = new Audio()
+cocoSong.src = './assets/deedeesong.wav'
+
+window.onload = setInterval(songLoop, 1000 / 10)
+window.onload = setInterval(sizeLoop, 1000 / 10)
+
 let click = 1
 let cps = 0
 let cpsSpeed = 1000
+
+function songLoop() {
+    cocoSong.play()
+    if (cocoSong.paused == true) {
+        cocoSong.play();
+    }
+}
+
+function sizeLoop() {
+    cocoSize.style.width = size(cocosParsed) + '%'
+}
+
+function size(x) {
+    if (x <= 0) {
+        return 17
+    } else {
+        let s = (2.5189 * (Math.log(1.487352 * x))) + 17
+        return s
+    }
+}
 
 function cocoUp() {
     cocosParsed += click
@@ -36,11 +68,12 @@ function kibbleBuy() {
         kibbleLvl.innerHTML ++
 
         cps += parsedKibbleAmount
+        cppiStat.innerHTML = Math.round(cps * 100) / 100
 
         parsedKibbleAmount = parsedKibbleAmount * 1.05
         kibbleAmount.innerHTML = Math.round(parsedKibbleAmount * 100) / 100
 
-        parsedKibbleCost *= 1.15
+        parsedKibbleCost *= 1.2
         kibbleCost.innerHTML = Math.round(parsedKibbleCost)
     }
 }
@@ -56,8 +89,9 @@ function wetBuy() {
         wetAmount.innerHTML = Math.round(parsedWetAmount * 100) / 100
 
         click ++
+        cppcStat.innerHTML = Math.round(click * 100) / 100
 
-        parsedWetCost *= 1.15
+        parsedWetCost *= 1.2
         wetCost.innerHTML = Math.round(parsedWetCost)
     }
 }
@@ -72,14 +106,15 @@ function bluebBuy() {
         parsedBluebAmount = parsedBluebAmount * 1.05
         bluebAmount.innerHTML = Math.round(parsedBluebAmount * 100) / 100
 
-        cpsSpeed *= 1.25
+        cpsSpeed *= 0.98
         clearInterval(interval)
-        var interval = setInterval(() => {
+        interval = setInterval(() => {
             cocosParsed += cps
             cocos.innerHTML = Math.round(cocosParsed * 100) / 100
         }, cpsSpeed)
+        intervalStat.innerHTML = Math.round(cpsSpeed * 100) / 100
 
-        parsedBluebCost *= 1.15
+        parsedBluebCost *= 1.2
         bluebCost.innerHTML = Math.round(parsedBluebCost)
     }
 }
