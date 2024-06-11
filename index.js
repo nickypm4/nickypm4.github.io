@@ -19,28 +19,33 @@ let bluebLvl = document.querySelector('.blueb-lvl')
 let bluebAmount = document.querySelector('.blueb-amount')
 let parsedBluebAmount = parseFloat(bluebAmount.innerHTML)
 
+let chickenCost = document.querySelector('.chickencost')
+let parsedChickenCost = parseFloat(chickenCost.innerHTML)
+let chickenLvl = document.querySelector('.chicken-lvl')
+let chickenAmount = document.querySelector('.chicken-amount')
+let parsedChickenAmount = parseFloat(chickenAmount.innerHTML)
+
+let cheeseCost = document.querySelector('.cheesecost')
+let parsedCheeseCost = parseFloat(cheeseCost.innerHTML)
+let cheeseLvl = document.querySelector('.cheese-lvl')
+let cheeseAmount = document.querySelector('.cheese-amount')
+let parsedCheeseAmount = parseFloat(cheeseAmount.innerHTML)
+
 let cppcStat = document.getElementById("cppc-text")
 let cppiStat = document.getElementById("cppi-text")
 let intervalStat = document.getElementById("interval-text")
 
 let cocoSize = document.getElementById("cocosize")
 
-let cocoSong = new Audio()
-cocoSong.src = './assets/deedeesong.wav'
+const cocoSong = new Audio('./assets/deedeesong.wav')
+cocoSong.loop = true
+cocoSong.play()
 
-window.onload = setInterval(songLoop, 1000 / 10)
 window.onload = setInterval(sizeLoop, 1000 / 10)
 
 let click = 1
 let cps = 0
 let cpsSpeed = 1000
-
-function songLoop() {
-    cocoSong.play()
-    if (cocoSong.paused == true) {
-        cocoSong.play();
-    }
-}
 
 function sizeLoop() {
     cocoSize.style.width = size(cocosParsed) + '%'
@@ -116,6 +121,42 @@ function bluebBuy() {
 
         parsedBluebCost *= 1.2
         bluebCost.innerHTML = Math.round(parsedBluebCost)
+    }
+}
+
+function chickenBuy() {
+    if (cocosParsed >= parsedChickenCost) {
+        cocosParsed -= parsedChickenCost
+        cocos.innerHTML = Math.round(cocosParsed * 100) / 100
+
+        chickenLvl.innerHTML ++
+
+        cps += parsedChickenAmount
+        cppiStat.innerHTML = Math.round(cps * 100) / 100
+
+        parsedChickenAmount = parsedChickenAmount * 1.05
+        chickenAmount.innerHTML = Math.round(parsedChickenAmount * 100) / 100
+
+        parsedChickenCost *= 1.2
+        chickenCost.innerHTML = Math.round(parsedChickenCost)
+    }
+}
+
+function cheeseBuy() {
+    if (cocosParsed >= parsedCheeseCost) {
+        cocosParsed -= parsedCheeseCost
+        cocos.innerHTML = Math.round(cocosParsed * 100) / 100
+
+        cheeseLvl.innerHTML ++
+
+        cps += parsedCheeseAmount
+        cppiStat.innerHTML = Math.round(cps * 100) / 100
+
+        parsedCheeseAmount = parsedCheeseAmount * 1.05
+        cheeseAmount.innerHTML = Math.round(parsedCheeseAmount * 100) / 100
+
+        parsedCheeseCost *= 1.2
+        cheeseCost.innerHTML = Math.round(parsedCheeseCost)
     }
 }
 
